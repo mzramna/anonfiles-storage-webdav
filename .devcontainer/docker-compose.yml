@@ -1,0 +1,19 @@
+version: "3"
+services:
+  db:
+    image: postgres:15.4
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database_name
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/app
+    ports:
+      - 8000:8000
+    command: sleep infinity

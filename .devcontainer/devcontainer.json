@@ -1,0 +1,55 @@
+{
+	"name": "Python 3 with postgres",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/app",
+	"forwardPorts": [
+		8000,
+		"db:5432"
+	],
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+	],
+	// "build": {
+	//   "dockerfile": "Dockerfile"
+	// },
+	// "services": {
+	//   "db": {
+	// 	"image": "postgres",
+	// 	"environment": {
+	// 	  "POSTGRES_USER": "your_username",
+	// 	  "POSTGRES_PASSWORD": "your_password",
+	// 	  "POSTGRES_DB": "your_database_name"
+	// 	}
+	//   }
+	// },
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"donjayamanne.python-extension-pack",
+				"frhtylcn.pythonsnippets",
+				"Codium.codium",
+				"mikestead.dotenv",
+				"Mukundan.python-docs",
+				"ms-python.vscode-pylance-pyright",
+				"ms-python.pylint"
+			]
+		}
+	},
+	// "portsAttributes": {
+	//   "8000": {
+	// 	"label": "api",
+	// 	"onAutoForward": "notify"
+	//   },
+	//   "21": {
+	// 	"label": "ftp",
+	// 	"onAutoForward": "notify"
+	//   }
+	// },
+	"postCreateCommand": "pip3 install -r requirements.txt",
+	"remoteUser": "root"
+}
